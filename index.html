@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAF Command Mainframe - Officer Vishnu</title>
+    <style>
+        body {
+            background-color: #020617;
+            color: #38bdf8; /* Tactical Sky Blue */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .terminal {
+            width: 92%;
+            max-width: 680px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 2px solid #0284c7;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+            padding: 25px;
+            border-radius: 8px;
+        }
+        .header {
+            border-bottom: 2px solid #0284c7;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+        .output {
+            min-height: 280px;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+        .highlight-officer {
+            color: #ffffff;
+            background-color: #1e40af;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            box-shadow: 0 0 15px #38bdf8;
+            display: inline-block;
+        }
+        .btn {
+            background: transparent;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+            padding: 10px 22px;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            display: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #38bdf8;
+            color: #020617;
+            box-shadow: 0 0 20px #38bdf8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="terminal">
+    <div class="header">
+        <span>STRATEGIC_AIR_COMMAND.sh</span>
+        <span>SECURITY: CLASSIFIED [LEVEL 5]</span>
+    </div>
+    <div class="output" id="terminal-output"></div>
+    <button class="btn" id="next-btn" onclick="startDecryption()">Bypass Command Firewall</button>
+</div>
+
+<script>
+    const output = document.getElementById('terminal-output');
+    const btn = document.getElementById('next-btn');
+
+    const lines = [
+        "Initializing global air defense scan... [OK]",
+        "Establishing secure link with Central Command...",
+        "Bypassing secure military communication channels...",
+        "Searching for the most sharp & respected mentor...",
+        "Target Locked: <span class='highlight-officer'>VISHNU SIR 🎖️ [Indian Air Force]</span>",
+        "STATUS: Absolute Legend. Protocol active.",
+        "Decrypting officer assessment logs..."
+    ];
+
+    const compliments = [
+        "Analyzing Leadership Skill... Result: 100% Top Class. Guide aur Mentor ho toh Vishnu Sir jaisa! 🦅",
+        "Analyzing Aura & Personality... Result: Solid rock character. Ekdum damdaar aur inspiring aura.",
+        "Analyzing Professionalism... Result: Discipline aur Dedication ka doosra naam Vishnu Sir! 🇮🇳⚡",
+        "Final Verdict: Sir ki mentorship aur Air Force ka discipline... dono ka koi match nahi hai. Pure respect! 🙌",
+        "\n[LOG EXTRACTION SUCCESSFUL] - Salute to Vishnu Sir! Jai Hind! 🫡💙"
+    ];
+
+    let lineIndex = 0;
+
+    function typeLine() {
+        if (lineIndex < lines.length) {
+            output.innerHTML += lines[lineIndex] + "\n";
+            lineIndex++;
+            setTimeout(typeLine, 1200);
+        } else {
+            btn.style.display = "inline-block";
+        }
+    }
+
+    let compIndex = 0;
+    function startDecryption() {
+        btn.style.display = "none";
+        output.innerHTML = "EXTRACTING OFFICER_LOGS_FOR_VISHNU_SIR... \n\n";
+        typeCompliment();
+    }
+
+    function typeCompliment() {
+        if (compIndex < compliments.length) {
+            output.innerHTML += compliments[compIndex] + "\n\n";
+            compIndex++;
+            setTimeout(typeCompliment, 2200);
+        }
+    }
+
+    // Start execution
+    setTimeout(typeLine, 500);
+</script>
+
+</body>
+</html>
